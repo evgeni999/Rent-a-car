@@ -1,0 +1,846 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[bulgarian]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{tocloft}
+
+% Премахване на червеното поле около съдържанието
+\renewcommand{\cfttoctitlefont}{\normalfont\large\bfseries}
+\renewcommand{\cftaftertoctitle}{\mbox{}}
+
+\lstset{
+    language=Java,
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{green},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    frame=single,
+    showstringspaces=false
+}
+
+\title{Разработка на система за управление на автомобили под наем}
+\author{Евгени Тенев}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Увод}
+Във време на бързо развитие на технологиите и нарастващата нужда от мобилност, системите за управление на автомобили под наем стават все по-важни за бизнеса. Настоящата дипломна работа има за цел да представи разработката на модерна уеб базирана система за управление на автомобили под наем, която да отговори на съвременните изисквания за ефективност, сигурност и удобство при използване.
+
+\subsection{Цели на дипломната работа}
+\begin{itemize}
+    \item Разработка на модерна уеб базирана система за управление на автомобили под наем
+    \begin{itemize}
+        \item Създаване на интуитивен потребителски интерфейс
+        \item Имплементация на сигурност и защита на данните
+        \item Осигуряване на бърз достъп и управление на информацията
+        \item Възможност за генериране на отчети и анализ на данните
+        \item Интеграция с външни системи и услуги
+        \item Поддръжка на мобилни устройства
+        \item Многоезичност и локализация
+    \end{itemize}
+    
+    \item Технически цели
+    \begin{itemize}
+        \item Използване на съвременни технологии и практики
+        \item Осигуряване на висока производителност
+        \item Имплементация на мащабируема архитектура
+        \item Осигуряване на сигурност и защита на данните
+        \item Автоматизация на процесите
+        \item Интеграция с облачни услуги
+    \end{itemize}
+    
+    \item Бизнес цели
+    \begin{itemize}
+        \item Подобряване на ефективността на бизнеса
+        \item Намаляване на оперативните разходи
+        \item Подобряване на обслужването на клиентите
+        \item Увеличаване на доходите
+        \item Разширяване на пазарния дял
+    \end{itemize}
+\end{itemize}
+
+\subsection{Методология на изследване}
+\begin{itemize}
+    \item Анализ на съществуващите системи на пазара
+    \begin{itemize}
+        \item Проучване на функционалностите
+        \item Анализ на предимствата и недостатъците
+        \item Сравнителен анализ
+        \item Идентифициране на добри практики
+    \end{itemize}
+    
+    \item Проучване на нуждите на клиентите
+    \begin{itemize}
+        \item Анкети и интервюта
+        \item Анализ на обратната връзка
+        \item Идентифициране на проблеми
+        \item Определяне на изискванията
+    \end{itemize}
+    
+    \item Избор на подходящи технологии
+    \begin{itemize}
+        \item Анализ на технологичните възможности
+        \item Сравнение на различните решения
+        \item Оценка на съвместимостта
+        \item Избор на оптималните технологии
+    \end{itemize}
+    
+    \item Проектиране и реализация
+    \begin{itemize}
+        \item Архитектурно проектиране
+        \item Проектиране на базата данни
+        \item Разработка на компонентите
+        \item Интеграция и тестване
+    \end{itemize}
+    
+    \item Тестване и валидиране
+    \begin{itemize}
+        \item Unit тестване
+        \item Integration тестване
+        \item System тестване
+        \item Потребителско тестване
+    \end{itemize}
+\end{itemize}
+
+\section{Теоретична част}
+
+\subsection{Основни понятия и определения}
+\begin{itemize}
+    \item Система за управление на автомобили под наем
+    \begin{itemize}
+        \item Определение и предназначение
+        \item Основни компоненти
+        \item Функционални изисквания
+        \item Нефункционални изисквания
+    \end{itemize}
+    
+    \item Уеб базирани системи
+    \begin{itemize}
+        \item Архитектура на уеб приложения
+        \item Клиент-сървър модел
+        \item REST архитектура
+        \item Микросервисна архитектура
+    \end{itemize}
+    
+    \item Бази данни и управление на данните
+    \begin{itemize}
+        \item Релационни бази данни
+        \item NoSQL бази данни
+        \item Firebase Realtime Database
+        \item Firestore
+    \end{itemize}
+\end{itemize}
+
+\subsection{Съвременни технологии в уеб разработката}
+\begin{itemize}
+    \item Frontend технологии
+    \begin{itemize}
+        \item React.js
+        \begin{itemize}
+            \item История и развитие
+            \item Основни принципи
+            \item Виртуално DOM
+            \item Компонентен подход
+            \item Хукове (Hooks)
+            \item Контекст и състояние
+        \end{itemize}
+        
+        \item Tailwind CSS
+        \begin{itemize}
+            \item Принципи на работа
+            \item Утилитарни класове
+            \item Отзивчив дизайн
+            \item Предимства пред традиционен CSS
+        \end{itemize}
+        
+        \item React Router
+        \begin{itemize}
+            \item Маршрутизиране в React
+            \item Динамични маршрути
+            \item Защитени маршрути
+            \item История на навигацията
+        \end{itemize}
+    \end{itemize}
+    
+    \item Backend технологии
+    \begin{itemize}
+        \item Firebase
+        \begin{itemize}
+            \item Архитектура на Firebase
+            \item Автентикация и авторизация
+            \item Realtime база данни
+            \item Cloud функции
+            \item Хостинг услуги
+            \item Правила за сигурност
+        \end{itemize}
+        
+        \item Cloud услуги
+        \begin{itemize}
+            \item Предимства на cloud изчисленията
+            \item Модели на deployment
+            \item Мащабируемост
+            \item Отказоустойчивост
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Сигурност в уеб приложенията}
+\begin{itemize}
+    \item Основни принципи на сигурността
+    \begin{itemize}
+        \item Автентикация
+        \item Авторизация
+        \item Криптиране
+        \item Защита от атаки
+    \end{itemize}
+    
+    \item Защита на данните
+    \begin{itemize}
+        \item GDPR изисквания
+        \item Криптиране на данните
+        \item Резервни копия
+        \item Възстановяване при инцидент
+    \end{itemize}
+    
+    \item Безопасно програмиране
+    \begin{itemize}
+        \item Защита от XSS атаки
+        \item Защита от CSRF атаки
+        \item SQL инжекции
+        \item Валидация на входните данни
+    \end{itemize}
+\end{itemize}
+
+\subsection{Методологии за разработка на софтуер}
+\begin{itemize}
+    \item Agile методологии
+    \begin{itemize}
+        \item Scrum
+        \item Kanban
+        \item Extreme Programming
+        \item Предимства и недостатъци
+    \end{itemize}
+    
+    \item DevOps практики
+    \begin{itemize}
+        \item Непрекъсната интеграция
+        \item Непрекъснато доставяне
+        \item Автоматизация на процесите
+        \item Мониторинг и логване
+    \end{itemize}
+    
+    \item Тестване на софтуер
+    \begin{itemize}
+        \item Видове тестове
+        \item Unit тестване
+        \item Integration тестване
+        \item End-to-end тестване
+        \item Автоматизирано тестване
+    \end{itemize}
+\end{itemize}
+
+\subsection{Потребителски опит и дизайн}
+\begin{itemize}
+    \item UX/UI дизайн
+    \begin{itemize}
+        \item Принципи на добрия дизайн
+        \item Процес на проектиране
+        \item Прототипиране
+        \item Тестване с потребители
+    \end{itemize}
+    
+    \item Доступност (Accessibility)
+    \begin{itemize}
+        \item WCAG стандарти
+        \item ARIA атрибути
+        \item Адаптивен дизайн
+        \item Поддръжка на различни устройства
+    \end{itemize}
+    
+    \item Производителност
+    \begin{itemize}
+        \item Оптимизация на зареждането
+        \item Кеширане
+        \item Компресия
+        \item Lazy loading
+    \end{itemize}
+\end{itemize}
+
+\section{Анализ на съществуващите системи за управление на автомобили под наем}
+В тази глава се разглеждат съществуващите системи за управление на автомобили под наем на пазара. Анализират се техните основни функционалности, предимства и недостатъци.
+
+\subsection{Съществуващи системи на пазара}
+\begin{itemize}
+    \item Системи за управление на наличностите
+    \begin{itemize}
+        \item Проследяване на наличността на автомобили
+        \begin{itemize}
+            \item Реално време проследяване
+            \item Автоматично обновяване на статуса
+            \item История на използването
+            \item Прогнози за наличност
+        \end{itemize}
+        \item Управление на резервациите
+        \begin{itemize}
+            \item Онлайн резервации
+            \item Автоматично потвърждение
+            \item Управление на промени
+            \item Отмяна на резервации
+        \end{itemize}
+        \item Автоматично обновяване на статуса
+        \begin{itemize}
+            \item Интеграция с GPS системи
+            \item Автоматично отчитане на километри
+            \item Състояние на автомобила
+            \item Предстоящи поддръжки
+        \end{itemize}
+    \end{itemize}
+    
+    \item Системи за резервации и планиране
+    \begin{itemize}
+        \item Онлайн резервации
+        \begin{itemize}
+            \item 24/7 достъп
+            \item Мобилна поддръжка
+            \item Мгновено потвърждение
+            \item Платежни системи
+        \end{itemize}
+        \item Календар за наличност
+        \begin{itemize}
+            \item Визуализация на наличността
+            \item Филтриране по параметри
+            \item Групово гледане
+            \item Експорт на данни
+        \end{itemize}
+        \item Автоматично потвърждение
+        \begin{itemize}
+            \item Email известия
+            \item SMS известия
+            \item Push нотификации
+            \item Напомняния
+        \end{itemize}
+    \end{itemize}
+    
+    \item Системи за управление на клиенти
+    \begin{itemize}
+        \item Профили на клиенти
+        \begin{itemize}
+            \item Лична информация
+            \item История на резервациите
+            \item Предпочитания
+            \item Документи
+        \end{itemize}
+        \item История на резервациите
+        \begin{itemize}
+            \item Детайлен преглед
+            \item Статистика
+            \item Обратна връзка
+            \item Рейтинг система
+        \end{itemize}
+        \item Система за лоялност
+        \begin{itemize}
+            \item Точки и награди
+            \item Специални оферти
+            \item VIP програма
+            \item Партньорски програми
+        \end{itemize}
+    \end{itemize}
+    
+    \item Системи за отчетност и анализ
+    \begin{itemize}
+        \item Финансови отчети
+        \begin{itemize}
+            \item Приходи и разходи
+            \item Анализ на печалбата
+            \item Прогнози
+            \item Бюджетиране
+        \end{itemize}
+        \item Статистически анализи
+        \begin{itemize}
+            \item Анализ на търсенето
+            \item Популярност на модели
+            \item Сезонност
+            \item Трендове
+        \end{itemize}
+        \item Прогнози за натоварване
+        \begin{itemize}
+            \item Машинно обучение
+            \item Исторически данни
+            \item Външни фактори
+            \item Оптимизация
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Сравнителен анализ}
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Функционалност & Система А & Система Б & Система В & Нашата система \\
+\hline
+Управление на наличности & Да & Да & Да & Да \\
+Онлайн резервации & Да & Не & Да & Да \\
+Мобилна версия & Не & Да & Да & Да \\
+Многоезичност & Не & Да & Да & Да \\
+API интеграции & Да & Не & Да & Да \\
+GPS проследяване & Не & Да & Не & Да \\
+Автоматични отчети & Да & Да & Не & Да \\
+Система за лоялност & Не & Да & Да & Да \\
+Cloud базирана & Да & Не & Да & Да \\
+\hline
+\end{tabular}
+\caption{Сравнение на функционалностите}
+\end{table}
+
+\subsection{Анализ на предимствата и недостатъците}
+\begin{itemize}
+    \item Предимства на съществуващите системи
+    \begin{itemize}
+        \item Зрели и проверени решения
+        \item Голяма общност от потребители
+        \item Добра поддръжка
+        \item Регулярни актуализации
+    \end{itemize}
+    
+    \item Недостатъци на съществуващите системи
+    \begin{itemize}
+        \item Висока цена
+        \item Ограничена функционалност
+        \item Сложна интеграция
+        \item Липса на персонализация
+    \end{itemize}
+    
+    \item Възможности за подобрение
+    \begin{itemize}
+        \item Модерен потребителски интерфейс
+        \item Разширена функционалност
+        \item По-добра интеграция
+        \item Гъвкава конфигурация
+    \end{itemize}
+\end{itemize}
+
+\section{Избор на технологии за разработка}
+За разработката на системата са избрани следните технологии:
+
+\subsection{Frontend технологии}
+\begin{itemize}
+    \item React.js за frontend разработка
+    \begin{itemize}
+        \item Компонентен подход
+        \item Виртуално DOM
+        \item Голяма общност и поддръжка
+    \end{itemize}
+    
+    \item Tailwind CSS за стилизация
+    \begin{itemize}
+        \item Утилитарни класове
+        \item Бърза разработка
+        \item Отзивчив дизайн
+    \end{itemize}
+    
+    \item React Router за управление на маршрутите
+    \begin{itemize}
+        \item Динамична навигация
+        \item Защитени маршрути
+        \item История на навигацията
+    \end{itemize}
+    
+    \item Chart.js за визуализация на данни
+    \begin{itemize}
+        \item Интерактивни графики
+        \item Различни типове диаграми
+        \item Лесна интеграция
+    \end{itemize}
+\end{itemize}
+
+\subsection{Backend технологии}
+\begin{itemize}
+    \item Firebase за backend и база данни
+    \begin{itemize}
+        \item Realtime база данни
+        \item Автентикация
+        \item Хостинг
+        \item Cloud функции
+    \end{itemize}
+\end{itemize}
+
+\section{Проектиране на архитектурата на системата}
+Архитектурата на системата е проектирана според принципите на микросервисната архитектура, като се вземат предвид изискванията за мащабируемост, сигурност и производителност.
+
+\subsection{Системна архитектура}
+\begin{itemize}
+    \item Общ преглед на архитектурата
+    \begin{itemize}
+        \item Трислойна архитектура
+        \begin{itemize}
+            \item Презентационен слой (Frontend)
+            \item Бизнес логика (Backend)
+            \item Слой за данни (Database)
+        \end{itemize}
+        \item Микросервисна структура
+        \begin{itemize}
+            \item Автономни модули
+            \item Независимо мащабиране
+            \item Изолирани откази
+        \end{itemize}
+        \item Комуникация между компонентите
+        \begin{itemize}
+            \item REST API
+            \item WebSocket за реално време
+            \item Събития и нотификации
+        \end{itemize}
+    \end{itemize}
+    
+    \item Инфраструктурни компоненти
+    \begin{itemize}
+        \item Firebase инфраструктура
+        \begin{itemize}
+            \item Authentication сервиз
+            \item Firestore база данни
+            \item Storage за файлове
+            \item Hosting за статични файлове
+        \end{itemize}
+        \item CDN и кеширане
+        \begin{itemize}
+            \item Cloudflare CDN
+            \item Браузър кеширане
+            \item Сервиз работер кеширане
+        \end{itemize}
+        \item Мониторинг и логване
+        \begin{itemize}
+            \item Firebase Analytics
+            \item Performance Monitoring
+            \item Error Reporting
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+%\includegraphics[width=0.8\textwidth]{system-architecture.png}
+\caption{Архитектурна диаграма на системата}
+\end{figure}
+
+\subsection{Модули на системата}
+\begin{itemize}
+    \item Модул за управление на автомобили
+    \begin{itemize}
+        \item Добавяне и редактиране на автомобили
+        \begin{itemize}
+            \item Форма за въвеждане на данни
+            \item Валидация на входните данни
+            \item Качване на снимки
+            \item Автоматично генериране на ID
+        \end{itemize}
+        \item Управление на наличността
+        \begin{itemize}
+            \item Реално време проследяване
+            \item Календар за наличност
+            \item Автоматични обновления
+            \item Конфликти при резервации
+        \end{itemize}
+        \item Категоризация и филтриране
+        \begin{itemize}
+            \item Множество категории
+            \item Разширени филтри
+            \item Търсене по параметри
+            \item Сортиране и групиране
+        \end{itemize}
+    \end{itemize}
+    
+    \item Модул за управление на клиенти
+    \begin{itemize}
+        \item Регистрация и автентикация
+        \begin{itemize}
+            \item Множество методи за вход
+            \item Двуфакторна автентикация
+            \item Забравена парола
+            \item Верификация на имейл
+        \end{itemize}
+        \item Управление на профили
+        \begin{itemize}
+            \item Лична информация
+            \item Предпочитания
+            \item История на резервациите
+            \item Документи и снимки
+        \end{itemize}
+        \item История на резервациите
+        \begin{itemize}
+            \item Детайлен преглед
+            \item Филтриране и търсене
+            \item Експорт на данни
+            \item Статистика
+        \end{itemize}
+    \end{itemize}
+    
+    \item Модул за резервации
+    \begin{itemize}
+        \item Онлайн резервации
+        \begin{itemize}
+            \item Процес на резервация
+            \item Избор на дати
+            \item Избор на допълнителни услуги
+            \item Плащане онлайн
+        \end{itemize}
+        \item Календар за наличност
+        \begin{itemize}
+            \item Визуализация
+            \item Филтриране
+            \item Групиране
+            \item Експорт
+        \end{itemize}
+        \item Потвърждения и нотификации
+        \begin{itemize}
+            \item Email известия
+            \item SMS съобщения
+            \item Push нотификации
+            \item Напомняния
+        \end{itemize}
+    \end{itemize}
+    
+    \item Модул за отчети и статистика
+    \begin{itemize}
+        \item Финансови отчети
+        \begin{itemize}
+            \item Дневни отчети
+            \item Месечни отчети
+            \item Годишни отчети
+            \item Сравнителни анализи
+        \end{itemize}
+        \item Анализ на натоварването
+        \begin{itemize}
+            \item Графики на натоварване
+            \item Прогнози
+            \item Трендове
+            \item Сезонност
+        \end{itemize}
+        \item Прогнози
+        \begin{itemize}
+            \item Машинно обучение
+            \item Исторически данни
+            \item Външни фактори
+            \item Точност на прогнозите
+        \end{itemize}
+    \end{itemize}
+    
+    \item Административен панел
+    \begin{itemize}
+        \item Управление на потребители
+        \begin{itemize}
+            \item Създаване на потребители
+            \item Управление на роли
+            \item Права и разрешения
+            \item Активиране/деактивиране
+        \end{itemize}
+        \item Настройки на системата
+        \begin{itemize}
+            \item Глобални настройки
+            \item Конфигурация на модули
+            \item Локализация
+            \item Темплейти
+        \end{itemize}
+        \item Мониторинг
+        \begin{itemize}
+            \item Системен мониторинг
+            \item Логове и грешки
+            \item Производителност
+            \item Използване на ресурси
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\section{Реализация на системата}
+В тази глава се описва процесът на реализация на системата.
+
+\subsection{Настройка на Firebase проекта}
+\begin{verbatim}
+// Инициализация на Firebase
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "your-app.firebaseapp.com",
+  projectId: "your-app",
+  storageBucket: "your-app.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+\end{verbatim}
+
+\subsection{Създаване на базата данни}
+\begin{figure}[h]
+\centering
+%\includegraphics[width=0.8\textwidth]{database-schema.png}
+\caption{Схема на базата данни}
+\end{figure}
+
+\subsection{Разработка на frontend компоненти}
+\begin{verbatim}
+// Пример за React компонент
+import React, { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+
+const CarList = () => {
+  const [cars, setCars] = useState([]);
+  
+  useEffect(() => {
+    const fetchCars = async () => {
+      const querySnapshot = await getDocs(collection(db, "cars"));
+      const carsList = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setCars(carsList);
+    };
+    
+    fetchCars();
+  }, []);
+  
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {cars.map(car => (
+        <div key={car.id} className="border p-4 rounded-lg">
+          <h3>{car.brand} {car.model}</h3>
+          <p>Година: {car.year}</p>
+          <p>Цена: {car.price} лв./ден</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+\end{verbatim}
+
+\section{Тестване на системата}
+Процесът на тестване включва няколко етапа:
+
+\subsection{Видове тестове}
+\begin{itemize}
+    \item Тестване на функционалността
+    \begin{itemize}
+        \item Unit тестове
+        \item Integration тестове
+        \item System тестове
+    \end{itemize}
+    
+    \item Тестване на производителността
+    \begin{itemize}
+        \item Натоварване
+        \item Скорост на отговор
+        \item Мащабируемост
+    \end{itemize}
+    
+    \item Тестване на сигурността
+    \begin{itemize}
+        \item Автентикация
+        \item Авторизация
+        \item Защита на данните
+    \end{itemize}
+    
+    \item Тестване на потребителския интерфейс
+    \begin{itemize}
+        \item UX тестове
+        \item UI тестове
+        \item Доступност
+    \end{itemize}
+\end{itemize}
+
+\section{Документиране на системата}
+Документацията включва няколко аспекта:
+
+\subsection{Техническа документация}
+\begin{itemize}
+    \item Архитектурна документация
+    \item API документация
+    \item Документация на кода
+\end{itemize}
+
+\subsection{Потребителска документация}
+\begin{itemize}
+    \item Ръководство за потребители
+    \item Ръководство за администратори
+    \item Често задавани въпроси
+\end{itemize}
+
+\section{Въвеждане в експлоатация}
+Процесът на въвеждане в експлоатация включва:
+
+\subsection{Подготовка на средата}
+\begin{itemize}
+    \item Настройка на сървърите
+    \item Конфигурация на базата данни
+    \item Настройка на сигурността
+\end{itemize}
+
+\subsection{Миграция на данните}
+\begin{itemize}
+    \item Експорт на стари данни
+    \item Трансформация на данните
+    \item Импорт в новата система
+\end{itemize}
+
+\section{Анализ и изводи}
+В тази глава се правят изводи от разработката и внедряването на системата.
+
+\subsection{Постигнати резултати}
+\begin{itemize}
+    \item Успешна разработка на системата
+    \item Положителни отзиви от потребителите
+    \item Подобрена ефективност на бизнеса
+\end{itemize}
+
+\subsection{Насоки за бъдещо развитие}
+\begin{itemize}
+    \item Разширяване на функционалностите
+    \item Подобряване на производителността
+    \item Интеграция с допълнителни услуги
+\end{itemize}
+
+\section{Заключение}
+В заключение се обобщават основните постижения и предимства на разработената система, както и нейният принос за подобряване на ефективността на управлението на автомобили под наем.
+
+\section{Използвана литература}
+\begin{thebibliography}{9}
+\bibitem{react} React.js документация, \url{https://reactjs.org/docs/getting-started.html}
+\bibitem{firebase} Firebase документация, \url{https://firebase.google.com/docs}
+\bibitem{tailwind} Tailwind CSS документация, \url{https://tailwindcss.com/docs}
+\bibitem{chartjs} Chart.js документация, \url{https://www.chartjs.org/docs/latest/}
+\bibitem{latex} LaTeX документация, \url{https://www.latex-project.org/help/documentation/}
+\bibitem{webdev} Модерна уеб разработка, Д. Петров, 2023
+\bibitem{dbdesign} Дизайн на бази данни, И. Иванов, 2022
+\bibitem{security} Уеб сигурност, П. Георгиев, 2023
+\end{thebibliography}
+
+\section{Приложение}
+\subsection{Приложение А: Изходен код}
+Тук са включени важни части от изходния код на системата.
+
+\subsection{Приложение Б: Скрийншоти}
+Тук са включени скрийншоти от различните екрани на системата.
+
+\subsection{Приложение В: Тестови резултати}
+Тук са включени резултатите от тестовете на системата.
+
+\end{document} 
